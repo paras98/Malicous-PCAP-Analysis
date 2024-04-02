@@ -12,7 +12,7 @@ In this lab, we delve into the intriguing world of network forensics using Wires
 - **Malicious Traffic Identification:** Learn the techniques to spot and extract suspicious files from network traffic for deeper analysis.
 - **Malware Identification:** Sharpen your skills in determining the maliciousness of a file using its signature and online tools.
 
-## Introduction to Wireshark 🐠
+## Introduction to Wireshark 🐋
 
 Wireshark is not just a tool but a window to understanding what flows through the veins of a network. It’s a powerful ally for anyone looking to understand network protocols, troubleshoot problems, or inspect security issues within a network. Whether you're a network administrator, security engineer, or an enthusiast eager to learn about network internals, Wireshark offers the insights you need.
 
@@ -46,25 +46,13 @@ This lab provides a foundational understanding of network traffic analysis for i
 
 ---
 
-_**Authors:** Paras Saxena and Johncliff Mutungwa | Guided by **Mr. Robot**_
+_**Authors:** Paras Saxena and Johncliff Mutungwa 
 
-# **MALICIOUS PCAP DISSECTION WITH WIRESHARK**
-
-##### By **Mr Robot**
-
-_**Authors**: Paras Saxena and Johncliff Mutungwa_
-
-![AIAProject-37002416.jpg](https://topomojo.ini.cmu.edu/docs/281c115265f447f09c993d784ef99093/AIAProject-37002416.jpg)
-
-  
-
-## LAB OVERVIEW
+# Lab Guide 📓: 
+## LAB OVERVIEW 💻
 
 In this lab for "Malicious PCAP Dissection", we will be using the Wireshark network protocol analyzer to examine captured packet capture (PCAP) files containing network traffic from an infected Network. Wireshark is a network packet analyzer, it is used for examining what goes inside a network through captured traffic on the network interfaces. It offers many criteria to filter packets in great detail of protocols and create various statistics for quick understanding.
-
-  
-
-### Learning Objectives
+### Learning Objectives 📝
 
 By the end of this lab, you will be able to:
 
@@ -72,25 +60,15 @@ By the end of this lab, you will be able to:
 - Identify a malicious traffic: How to identify and save malicious suspicious files on the network traffic for further analysis, based on specific patterns and characteristics within the network packets.
 - Identify the malware used: How to identify whether a suspicious file on the network traffic was malicious using available tools online and determine its type based on its signature.
 - Apply the best practices when it comes to analyzing, documenting, and sharing insights regarding malicious files.
-
-  
-
-## Introduction to Wireshark (Optional Read)
-
+## Introduction to Wireshark 🐋 
 Wireshark is a network packet analyzer that presents captured packet data in as much detail as possible. You could think of a network packet analyzer as a measuring device for examining what's happening inside a network cable, just like an electrician uses a voltmeter for examining what’s happening inside an electric cable (but at a higher level, of course). In the past, such tools were either very expensive, proprietary, or both. However, with the advent of Wireshark,that has changed. Wireshark is available for free, is open source, and is one of the best packet analyzers available today.
-
 Here are some reasons people use Wireshark:
-
-- Network administrators use it to troubleshoot network problems
-- Network security engineers use it to examine security problems
-- Quality Assurance engineers use it to verify network applications
-- Developers use it to debug protocol implementations
-- People use it to learn about the internals of network protocols
-
+- Network administrators use it to troubleshoot network problems 🔀
+- Network security engineers use it to examine security problems 👮
+- Quality Assurance engineers use it to verify network applications 👷
+- Developers use it to debug protocol implementations 🌐
+- People use it to learn about the internals of network protocols 👿
 Wireshark can also be helpful in many other situations.
-
-  
-
 ### Quick Introduction to Wireshark for Network Analysis
 
 **For malicious packet analysis, It's important to discover information about the host on the network. Common ways of doing this are:**
@@ -113,7 +91,7 @@ The issue with DHCP traffic is that it is not likely to be captured and will mak
 
   
 Note:( Attackers often spoofs the User-Agents line)  
-For this, use the feature "follow tcp stream" using http.request as the filter. To do this, select the target packet > right click and select "Follow" > TCP Stream.
+For this, use the feature `"follow tcp stream"` using `http.request` as the filter. To do this, `select the target packet > right click and select "Follow" > TCP Stream.`
 
 ![image7-405135646.png](https://topomojo.ini.cmu.edu/docs/281c115265f447f09c993d784ef99093/image7-405135646.png)
 
@@ -131,14 +109,14 @@ Windows Version mapped from the wireshark information
 #### 4. User's Name :
 
   
-Filter : **kerberos.CNameString**  
+Filter : `**kerberos.CNameString**`  
 Note: If a name is followed by a "$" sign it means that it is a machine account.
 
 ![image6-1764231247.png](https://topomojo.ini.cmu.edu/docs/281c115265f447f09c993d784ef99093/image6-1764231247.png)
 
 Here more ways to find windows User Name if Kerbaros traffic is missing in the packets  
 **SMB traffic:**  
-SMB host announcement packets consist of the windows host name “DESKTOP-...”
+SMB host announcement packets consist of the windows host name `“DESKTOP-...”`
 
 ![image11-1459048887.png](https://topomojo.ini.cmu.edu/docs/281c115265f447f09c993d784ef99093/image11-1459048887.png)
 
@@ -214,8 +192,6 @@ Updates for Google and Chromium-based browsers will contain the traffic generate
 
 ![2023-03-22_22_50_57-Clipboard-1288780706.png](https://topomojo.ini.cmu.edu/docs/281c115265f447f09c993d784ef99093/2023-03-22_22_50_57-Clipboard-1288780706.png)
 
-  
-
 ## **Lab 1**
 
 #### Network Diagram
@@ -234,18 +210,14 @@ Once you configure Wireshark, you start the capture. This begins recording all n
 
 After the capture is complete, you save the capture file in the PCAP format. This allows you to analyze the traffic using Wireshark or other network analysis tools.
 
-  
-
 Now as a SOC Engineer, you have two PCAP files captured by Wireshark for a network that has been affected by malicious activities. Your task is to dissect the PCAP files and identify any signs of malicious behavior.
-
-  
 
 #### Step 0: Getting started
 
 1. Start the lab and let the **UbuntuPC** bootup.
-If needed following are the credentials for the **UbuntuPC** system. **Username: `Student` | Password: `tartans`**  
+If needed following are the credentials for the **UbuntuPC** system. `**Username: `Your User Name` | Password: `Your Password `**  `
 If there is a prompt that says "Updated software is available for this computer. Do you want to install it now?", just click on "Remind Me Later".  
-The PCAP files to be analyzed are saved to the **UbuntuPC**11. To open a Terminal window, click on the icon located at the bottom of the menu on the left-hand side called "Show Applications" then type "terminal" in the search field, Enter or click on the black icon as follows:.
+The PCAP files to be analyzed can be found on the repository download it and open it in Wireshark. To open a Terminal window, click on the icon located at the bottom of the menu on the left-hand side called "Show Applications" then type "terminal" in the search field, Enter or click on the black icon as follows:.
 
 ![2023-04-06_23_28_57-Clipboard-401086668.png](https://topomojo.ini.cmu.edu/docs/281c115265f447f09c993d784ef99093/2023-04-06_23_28_57-Clipboard-401086668.png)
 
@@ -270,6 +242,7 @@ Go to menu bar of the wireshark window, click on "Statistics" then choose the fi
 ![statistics-302050896.jpg](https://topomojo.ini.cmu.edu/docs/281c115265f447f09c993d784ef99093/statistics-302050896.jpg)
 
 At this time, open a new tab for terminal window and run the following command  
+**Grading Script Can be also found in the repository Under Grading Folder** 
 **student@ubuntu:~/Desktop$`python3 ~/Desktop/script/grading_script1.py`** and you will be able to answer question 1 and question 2.
 
 Next let's find out what are the devices that are communicating on the network via IPv4 whether internal or external by going on again the wireshark menu bar, click on "statistics" and then select "Endpoints". From the Endpoints window, click the "IPv4-16" button to display IPs of all devices under communication on the network captured file.
@@ -298,13 +271,12 @@ And you are able to answer Question 1 to Question 4 of the second script.
 
 Continue exploring all the packets to identify the ones that have captured the email password of the user account mentioned in question 3.  
 Now you are able to answer question 5.  
-  
 
 #### Step 3: Finding out the payloads with the malware traffic
 
 Next, let's Look for any payloads associated with the malware traffic, such as executables, scripts, or data files. You can identify these by looking for unusual file transfers or unusual patterns in the traffic.  
 It is important to note that typically, when an executable file is included, the message that appears is "This program cannot be executed in DOS Mode."  
-So let's filter the packets with this command: **`ip contains "This program"`** Then follow TCP stream for each packet got to analyze if they contains file signature of "MZ" that stands for Mark Zbikowski which is one of the principal architects of MS-DOS and the Windows/DOS executable file format. ![ExecutableFiles-984051089.jpg](https://topomojo.ini.cmu.edu/docs/281c115265f447f09c993d784ef99093/ExecutableFiles-984051089.jpg)
+So let's filter the packets with this command: **`ip contains "This program"`** Then follow TCP stream for each packet got to analyze if they contains file signature of "MZ" that stands for **Mark Zbikowski** which is one of the principal architects of MS-DOS and the Windows/DOS executable file format. ![ExecutableFiles-984051089.jpg](https://topomojo.ini.cmu.edu/docs/281c115265f447f09c993d784ef99093/ExecutableFiles-984051089.jpg)
 
 Once you find that there are packets containing those executable files, locate them and download them by clicking **"File" -> "Exports Objects" -> "HTTP"**. Here is where you will get all the files and select ones you've found from the above filtered packets and save them at ~/Desktop/Lab1/FilesfromPcap.  
 Now run the grading script 3 using the following command:  
@@ -327,49 +299,32 @@ Now you can answer the question Q1 to Q4 of the grading_script4. By running the 
 **student@ubuntu:~/Desktop$`python3 script/grading_script4.py`**  
 
 Here is where you can report your findings to the appropriate parties, such as your IT security team or law enforcement if necessary.
-
-  
-
 ## **Lab 2**
-
 Note : Close all instance of wireshark  
   
-
 ![new-436048620.png](https://topomojo.ini.cmu.edu/docs/281c115265f447f09c993d784ef99093/new-436048620.png)
 
 As a Security Operations Center agent, it is necessary to report your findings in a comment format after analyzing a PCAP file, as follows:  
 “On [date] at [time in UTC], a Windows computer used by [victim's name] was infected with [name of malware, if known].”  
-  
-
 #### Step 0 Setting Up
-
 Open up the PCAP file Lab2.pcap from the folder location '~/Desktop/Lab2' with wireshark  
 Also execute the grading_script_5.py in a new terminal window  
 **student@ubuntu: $`python3 ~/Desktop/script/grading_script5.py`**  
-  
-
 #### Step 1 Analysis of PCAP.
-
 Let's start by analyzing the PCAP file, best approach is to go into the Statistics tab > Conversation > IPv4 conversion and sort the conversion with size. There is a major conversion with one internal IP address. To confirm this suspicious behavior,let's put a filter on this IP and observe the traffic:  
 **`ip.addr == XXX.XXX.XXX.XXX`**  
 Now you should be able to answer Q1.  
-  
-
 To find the mac address of the victims there are many ways, you may look into the Ethernet Frame ( Note select the source IP in the packet to get the correct mac).  
-Now you should be able to answer Q2.  
-  
+Now you should be able to answer Q2.    
 Next need to identify the Host and User of the infected device on the network.  
 Now you should be able to answer Q3, Q4.  
 Hint Q3: Refer Section (1. DHCP Filter)  
 Hint Q4: Refer Section (4. User's Name)  
-  
-
 #### Step 2 IOC
-
 Now determining indicator of compromise [IOC]  
 The place to start to look for is files associated in the pcap,since to spread a malware some delivery mechanism is needed as discussed in the introduction section and to find out these files in wireshark.  
 **Go to: File Tab > Export Object > HTTP Object**  
-Now answer the Q5. [Hint : just consider .jpg files, a single jpg file will have 2 records in HTTP object list]  
+Now answer the Q5. 
   
 Save the files in FilesfromPcap folder within Lab2 folder on Desktop you can use save all button and then execute following cmd in new terminal.  
   
@@ -379,21 +334,16 @@ Save the files in FilesfromPcap folder within Lab2 folder on Desktop you can use
   
 Now you have the hashes you can simply check those on the Online Databases for Malware such as virustotal.com  
 For now we have prepared a image file located at `/home/student/Desktop/Lab2/virus_Total_Screen_Shot` with each hash as there name  
-Now you can answer the question Q6 to Q12.  
-  
+Now you can answer the question Q6 to Q12.    
 Now note, all of the files listed are legitimate DLL's and not inherently malicious. But why are they masked as .jpg so there is something fishy? They are indicators of compromise. The presence of these files should be combined with the network-based IOC's as listed below to form a holistic assessment.  
   
 So let's find the network based indicators now.  
-For this open up the PCAP in wireshark put the filter as following  
-  
+For this open up the PCAP in wireshark put the filter as following 
 **`ip.addr == XXX.XXX.XXX.XXX && http.request.method == POST`**  
 Note: XXX.XXX.XXX.XXX is the infected system IP you found previously  
-  
 Analyze the traffic and find out the post request in which a .zip file is sent to the attacker through a post request at port 80  
 Now you can answer the question Q13.  
-If you would download the .zip file and extract it and go thought it you will encounter data from the victim's system, containing multiple autofill text files, cookies, and credentials were exfiltrated.  
-  
-  
+If you would download the .zip file and extract it and go thought it you will encounter data from the victim's system, containing multiple autofill text files, cookies, and credentials were exfiltrated.   
 Now combining the information from Host-Base Indicator and Network-Based indicator and researching these factors we came across this site "Meet Oski Stealer: An In-depth Analysis of the Popular Credential Stealer (cyberark.com)" [attached as pdf as well of site screenshot] indicate this is a **Oski Stealer Malware**.  
 Thus completing the final analysis.  
 Now you can answer the question Q14.  
@@ -406,3 +356,12 @@ We explored the complexities of evaluating a PCAP carrying malicious network tra
 The lab gave an overview of the key procedures involved in network traffic analysis to find malicious activities. We learnt how to examine network data with Wireshark and spot anomalies that can point to nefarious behavior. Additionally, we investigated various approaches of analyzing the malware itself in order to comprehend its behavior and properties.  
 It is important to remember that the methodology and tools for analysis we reviewed in this lab just scratch the surface of what is necessary for a thorough investigation into network security. A successful security analysis requires a thorough understanding of various malware and attacks, knowledge of the network infrastructure, and proficiency in using different network security tools.  
 As a wrap-up, this lab introduced us to the core ideas and methods involved in network traffic analysis for security purposes. It provided as a foundation for deeper investigation into the many approaches and technologies that security professionals might use to detect and prevent hostile behavior on networks.
+
+
+### Reference:
+
+- [https://www.virustotal.com/](https://www.virustotal.com/)
+- [https://unit42.paloaltonetworks.com/using-wireshark-identifying-hosts-and-users/](https://unit42.paloaltonetworks.com/using-wireshark-identifying-hosts-and-users/)
+- [https://www.cyberark.com/resources/threat-research-blog/meet-oski-stealer-an-in-depth-analysis-of-the-popular-credential-stealer](https://www.cyberark.com/resources/threat-research-blog/meet-oski-stealer-an-in-depth-analysis-of-the-popular-credential-stealer)
+- [https://tryhackme.com/room/wiresharkthebasics](https://tryhackme.com/room/wiresharkthebasics)
+- [https://www.malware-traffic-analysis.net](https://www.malware-traffic-analysis.net/)
