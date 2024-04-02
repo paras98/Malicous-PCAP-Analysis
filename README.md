@@ -46,7 +46,7 @@ This lab provides a foundational understanding of network traffic analysis for i
 
 ---
 
-_**Authors:** Paras Saxena and Johncliff Mutungwa 
+_**Authors:** Paras Saxena and Johncliff Mutungwa | Guided by **Mr. Robot**_
 
 # Lab Guide 📓: 
 ## LAB OVERVIEW 💻
@@ -214,17 +214,15 @@ Now as a SOC Engineer, you have two PCAP files captured by Wireshark for a netwo
 
 #### Step 0: Getting started
 
-1. Start the lab and let the **UbuntuPC** bootup.
-If needed following are the credentials for the **UbuntuPC** system. `**Username: `Your User Name` | Password: `Your Password `**  `
-If there is a prompt that says "Updated software is available for this computer. Do you want to install it now?", just click on "Remind Me Later".  
+1. Start the lab and let the **System** bootup.
+
 The PCAP files to be analyzed can be found on the repository download it and open it in Wireshark. To open a Terminal window, click on the icon located at the bottom of the menu on the left-hand side called "Show Applications" then type "terminal" in the search field, Enter or click on the black icon as follows:.
 
 ![2023-04-06_23_28_57-Clipboard-401086668.png](https://topomojo.ini.cmu.edu/docs/281c115265f447f09c993d784ef99093/2023-04-06_23_28_57-Clipboard-401086668.png)
 
-15. Type the following commands to copy the zipped file to the Desktop
-**student@ubuntu:~$`cd Desktop/Lab1`**  
-**student@ubuntu:~/Desktop$`cp ~/Documents/MalwareAnalysis1.zip .`**  
-Note that the period "." at the above command means the current working directory.20. Type the following command to unzip the zipped file on the Desktop
+2. Type the following commands to copy the zipped file to the Desktop [OS Ubuntu in this demo]
+3. Download the Zip of Pcap from the repository 
+**student@ubuntu:~$`cd Download`**  
 **student@ubuntu:~/Desktop$`unzip MalwareAnalysis1.zip`**  
 It will prompt you to enter a password. Type `"infected"` and click "enter"  
 **student@ubuntu:~/Desktop$`ls`**  
@@ -242,7 +240,8 @@ Go to menu bar of the wireshark window, click on "Statistics" then choose the fi
 ![statistics-302050896.jpg](https://topomojo.ini.cmu.edu/docs/281c115265f447f09c993d784ef99093/statistics-302050896.jpg)
 
 At this time, open a new tab for terminal window and run the following command  
-**Grading Script Can be also found in the repository Under Grading Folder** 
+**Grading Script Can be also found in the repository Under Script Folder Download them as well.** 
+
 **student@ubuntu:~/Desktop$`python3 ~/Desktop/script/grading_script1.py`** and you will be able to answer question 1 and question 2.
 
 Next let's find out what are the devices that are communicating on the network via IPv4 whether internal or external by going on again the wireshark menu bar, click on "statistics" and then select "Endpoints". From the Endpoints window, click the "IPv4-16" button to display IPs of all devices under communication on the network captured file.
@@ -250,8 +249,6 @@ Next let's find out what are the devices that are communicating on the network v
 ![Endpoints-335845325.jpg](https://topomojo.ini.cmu.edu/docs/281c115265f447f09c993d784ef99093/Endpoints-335845325.jpg)
 
 Now you should be able to answer question 3, which asks for the IP address that is used the most for communication in the network.
-
-  
 
 #### Step 2: Analysis of the infectious malware on HTTP Traffic
 
@@ -356,7 +353,6 @@ We explored the complexities of evaluating a PCAP carrying malicious network tra
 The lab gave an overview of the key procedures involved in network traffic analysis to find malicious activities. We learnt how to examine network data with Wireshark and spot anomalies that can point to nefarious behavior. Additionally, we investigated various approaches of analyzing the malware itself in order to comprehend its behavior and properties.  
 It is important to remember that the methodology and tools for analysis we reviewed in this lab just scratch the surface of what is necessary for a thorough investigation into network security. A successful security analysis requires a thorough understanding of various malware and attacks, knowledge of the network infrastructure, and proficiency in using different network security tools.  
 As a wrap-up, this lab introduced us to the core ideas and methods involved in network traffic analysis for security purposes. It provided as a foundation for deeper investigation into the many approaches and technologies that security professionals might use to detect and prevent hostile behavior on networks.
-
 
 ### Reference:
 
